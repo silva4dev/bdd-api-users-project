@@ -12,3 +12,8 @@ Scenario: Create a new user
   Then the response should have status code 200
   And the response body should contain the created user's ID, name and email
 
+Scenario: Retrieve a user by ID
+  Given the server is running
+  When I retrieve the user with ID
+  Then the response should have status code 200
+  And the response body should contain the user's ID, name and email

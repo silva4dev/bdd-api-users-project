@@ -17,7 +17,7 @@ exports.show = (request, response) => {
 }
 
 exports.create = (request, response) => {
-    const { name, email } = request.body
+    const { name, email, id } = request.body
     const user = new User(name, email)
     users.push(user)
     response.json(user).status(200)

@@ -37,3 +37,14 @@ Then('the response body should contain the created user\'s ID, name and email', 
     expect(createdUser).to.have.property('name', 'John')
     expect(createdUser).to.have.property('email', 'john@example.com')
 })
+
+// Get a user by ID test
+When('I retrieve the user with ID', async () => {
+    response = await request(app).get(`/users/${createdUser.id}`)
+})
+
+Then('the response body should contain the user\'s ID, name and email', () => {
+    expect(response.body).to.have.property('id')
+    expect(response.body).to.have.property('name', 'John')
+    expect(response.body).to.have.property('email', 'john@example.com')
+})
